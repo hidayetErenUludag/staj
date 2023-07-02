@@ -31,14 +31,11 @@ def finder():
     print("The full dictionary:")
     print(dict_general)
 
-print(dictionaryer(status_list))
-
-
 def dict_to_list(the_list):
     transformed_list = []
-    for province,switches in the_list.items():
+    for province, switches in the_list.items():
         transformed_list.append(province)
-        for switch,interfaces in the_list.items():
+        for switch, interfaces in switches.items():
             transformed_list.append(switch)
             for interface in interfaces:
                 transformed_list.append(interface)
