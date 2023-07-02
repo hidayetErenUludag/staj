@@ -1,3 +1,7 @@
+with open('/Users/erenuludag/PycharmProjects/staj/venv/devices.txt', 'r') as file:
+    content = file.read()
+status_list = eval(content)
+
 def dictionaryer(status_list):
     dict_turkey = {}
 
@@ -16,20 +20,36 @@ def dictionaryer(status_list):
     return dict_turkey
 
 def finder():
-    for i in status_list:
-        province = i[0]
+    dict_general = dictionaryer(status_list)
+    provinces = [i[0] for i in status_list]
+
+    print("Available cities:")
+    for province in provinces:
         print(province)
 
-    print("Please enter one of these cities:")
-    x = str(input())
-    dict_general = dictionaryer(status_list)
-    print(dict_general.get(x).keys())
-    print("Please select a switch:")
-    y = str(input())
+    while True:
+        x = input("Please enter one of the cities: ")
+        if x in dict_general:
+            break
+        else:
+            print("Invalid input. Please try again.")
+
+    switch_names = dict_general.get(x, {}).keys()
+
+    print(f"Available switches in {x}:")
+    for switch_name in switch_names:
+        print(switch_name)
+
+    while True:
+        y = input("Please select a switch: ")
+        if y in switch_names:
+            break
+        else:
+            print("Invalid input. ")
+
+    print("Interface status: ")
     print(dict_general[x][y])
-    print("\n")
-    print("The full dictionary:")
-    print(dict_general)
+
 
 def dict_to_list(the_list):
     transformed_list = []
@@ -54,9 +74,7 @@ def status_controller(dict_of_something):
                         if dict_of_something.get(i).get(j)[0][k][2] == "disabled" and dict_of_something.get(i).get(j)[0][k][3] == "enabled":
                             print(dict_of_something.get(i).get(j)[0][k])
 
-with open('/Users/erenuludag/PycharmProjects/staj/venv/devices.txt', 'r') as file:
-    content = file.read()
-status_list = eval(content)
+
 
 print(dictionaryer(status_list))
 new_list = dict_to_list(dictionaryer(status_list))
