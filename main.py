@@ -1,4 +1,4 @@
-with open('/Users/erenuludag/PycharmProjects/staj/venv/devices.txt', 'r') as file:
+with open('devices.txt', 'r') as file:
     content = file.read()
 status_list = eval(content)
 
