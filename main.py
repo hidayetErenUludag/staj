@@ -54,11 +54,12 @@ def status_controller(dict_of_something):
                         if dict_of_something.get(i).get(j)[0][k][2] == "disabled" and dict_of_something.get(i).get(j)[0][k][3] == "enabled":
                             print(dict_of_something.get(i).get(j)[0][k])
 
+with open('/Users/erenuludag/PycharmProjects/staj/venv/devices.txt', 'r') as file:
+    content = file.read()
+status_list = eval(content)
 
-
-
-
-
-status_controler(dictionaryer(status_list))
-
+print(dictionaryer(status_list))
+new_list = dict_to_list(dictionaryer(status_list))
+print(new_list)
+status_controller(dictionaryer(status_list))
 finder()
