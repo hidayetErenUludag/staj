@@ -1,0 +1,27 @@
+- 4 bolgede switch ler var.. bu switch lerin interface'lerini nw'ten discover ettik .. ama discover ile elde ettigimiz data'da bazi eksikler ve bazi problemli durumlar var .. bu eksik ve problemlerin ne oldugunu bilmiyoruz, datayi islemeye calisirken gorecegiz ..
+- discover datasinin formati su sekilde : 4 adet lokasyonumuz var .. her lokasyonda degisik sayilarda switch'ler bulunuyor .. her bir switch in interface leri var, ve her interface'e ait 4 adet parametre var : interface-adi, ip-address, configured-status, operational-status..
+[
+["ankara",
+         ["switch-ankara-1", [["interface00", "1.1.1.1", "enabled", "enabled"],
+                              ["interface01", "1.1.1.2", "enabled", "enabled"],
+                              ["interface02", "1.1.1.3", "enabled", "enabled"],
+                              ["interface03", "1.1.1.4", "enabled", "enabled"],
+                              ["interface04", "1.1.1.5", "enabled", "enabled"],
+                              ["interface05", "1.1.1.6", "disabled", "enabled"],
+                              ["interface06", "1.1.1.7", "enabled", "enabled"],
+                              ["interface07", "1.1.1.8", "enabled", "enabled"],
+                              ["interface08", "1.1.1.9", "enabled", "enabled"],
+                              ["interface09", "1.1.1.10", "enabled", "enabled"]]
+],
+[..diger lokasyon],
+[..diger lokasyon],
+[..diger lokasyon],
+]
+
+mission possible :
+1/	bu datayi list'ten dictionary'ye cevirelim. yani bir fonksiyon tanimlayacagiz, ve bu fonksiyona input olarak bu listeyi verdigimizde bize bunun dictionary halini 'return' edecek .
+2/	elde ettigimiz dictionary'yi listeye ceviren bir fonksiyon yazalim.
+3/	bazi cihaz-interface lerde configured-status enabled olmadigi halde, operational-status enabled olan cihazlar var. bu normalde mumkun olmamali, bu interfaceleri tespit edip incelemek istiyoruz. bu list'i alip tasnif eden bir fonksiyon yazalim, ciktisi su sekilde olsun : 
+her satirinda: [lokasyon, cihaz-adi, interface-adi, ip-address, configured-status, operational-status] olsun. Yani toplam interface sayisi kadar satiri olsun .. Bu dosyayi excel'de acip incelemesi kolay olacaktir.
+
+Kolay gelsin.
