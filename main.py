@@ -45,18 +45,15 @@ def dict_to_list(the_list):
 new_list = dict_to_list(dictionaryer(status_list))
 print(new_list)
 
-
-
-def status_controler(dict_of_something):
+def status_controller(dict_of_something):
     for i in dict_of_something:
         for j in dict_of_something.get(i):
             if len(dict_of_something.get(i).get(j)[0]) > 0:
                 for k in range(len(dict_of_something.get(i).get(j)[0])):
-                    #print(dict_of_something.get(i).get(j)[0][k])
                     if len(dict_of_something.get(i).get(j)[0][k]) >= 4:
-                        #print(dict_of_something.get(i).get(j)[0][k][2], dict_of_something.get(i).get(j)[0][k][3])
                         if dict_of_something.get(i).get(j)[0][k][2] == "disabled" and dict_of_something.get(i).get(j)[0][k][3] == "enabled":
                             print(dict_of_something.get(i).get(j)[0][k])
+
 
 
 
