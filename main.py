@@ -20,15 +20,15 @@ def finder():
         province = i[0]
         print(province)
 
-    print("please enter one of these cities")
+    print("Please enter one of these cities:")
     x = str(input())
     dict_general = dictionaryer(status_list)
     print(dict_general.get(x).keys())
-    print("please select a switch")
+    print("Please select a switch:")
     y = str(input())
     print(dict_general[x][y])
     print("\n")
-    print("The full dictonary")
+    print("The full dictionary:")
     print(dict_general)
 
 print(dictionaryer(status_list))
