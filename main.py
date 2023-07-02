@@ -1,15 +1,3 @@
-with open('/Users/erenuludag/PycharmProjects/staj/venv/devices.txt', 'r') as file:
-    content = file.read()
-status_list = eval(content)
-
-#for i in status_list:
-    #x = i[0]
-    #if len(i) > 1 and len(i[1]) > 0:
-        #print(i[1][1])
-        #print(len(i[1][1]))
-
-#mighty_dict = {}
-
 def dictionaryer(status_list):
     dict_turkey = {}
 
@@ -24,6 +12,7 @@ def dictionaryer(status_list):
                 switch_interfaces[switch_name] = interfaces
 
         dict_turkey[province] = switch_interfaces
+
     return dict_turkey
 
 def finder():
@@ -42,7 +31,7 @@ def finder():
     print("The full dictonary")
     print(dict_general)
 
-#print(dictionaryer(status_list))
+print(dictionaryer(status_list))
 
 
 def dict_to_list(the_list):
@@ -57,13 +46,25 @@ def dict_to_list(the_list):
     return transformed_list
 
 new_list = dict_to_list(dictionaryer(status_list))
-#print(new_list)
+print(new_list)
 
 
 
 def status_controler(dict_of_something):
     for i in dict_of_something:
         for j in dict_of_something.get(i):
-            print(dict_of_something.get(i).get(j))
+            if len(dict_of_something.get(i).get(j)[0]) > 0:
+                for k in range(len(dict_of_something.get(i).get(j)[0])):
+                    #print(dict_of_something.get(i).get(j)[0][k])
+                    if len(dict_of_something.get(i).get(j)[0][k]) >= 4:
+                        #print(dict_of_something.get(i).get(j)[0][k][2], dict_of_something.get(i).get(j)[0][k][3])
+                        if dict_of_something.get(i).get(j)[0][k][2] == "disabled" and dict_of_something.get(i).get(j)[0][k][3] == "enabled":
+                            print(dict_of_something.get(i).get(j)[0][k])
+
+
+
+
 
 status_controler(dictionaryer(status_list))
+
+finder()
