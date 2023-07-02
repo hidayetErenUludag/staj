@@ -42,4 +42,28 @@ def finder():
     print("The full dictonary")
     print(dict_general)
 
-finder()
+#print(dictionaryer(status_list))
+
+
+def dict_to_list(the_list):
+    transformed_list = []
+    for province,switches in the_list.items():
+        transformed_list.append(province)
+        for switch,interfaces in the_list.items():
+            transformed_list.append(switch)
+            for interface in interfaces:
+                transformed_list.append(interface)
+
+    return transformed_list
+
+new_list = dict_to_list(dictionaryer(status_list))
+#print(new_list)
+
+
+
+def status_controler(dict_of_something):
+    for i in dict_of_something:
+        for j in dict_of_something.get(i):
+            print(dict_of_something.get(i).get(j))
+
+status_controler(dictionaryer(status_list))
